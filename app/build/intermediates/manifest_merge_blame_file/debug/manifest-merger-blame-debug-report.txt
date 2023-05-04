@@ -1,0 +1,73 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="cm3110.gigachadapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:5:5-66
+11-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <!-- Always include this permission -->
+14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+14-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:8:5-81
+14-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:8:22-78
+15
+16    <application
+16-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:10:5-29:19
+17        android:name="cm3110.gigachadapp.GlobalStoreTreatment"
+17-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:11:9-45
+18        android:allowBackup="true"
+18-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:12:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.5.0] C:\Users\keste\.gradle\caches\transforms-3\97e7ec19bd11dff7ae3d399ac9d0fa5b\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+20        android:debuggable="true"
+21        android:icon="@mipmap/ic_launcher"
+21-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:13:9-43
+22        android:label="@string/app_name"
+22-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:14:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:15:9-54
+24        android:supportsRtl="true"
+24-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:16:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.GigaChad" >
+26-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:17:9-46
+27        <activity
+27-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:18:9-26:20
+28            android:name="cm3110.gigachadapp.IntroScreen"
+28-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:19:13-40
+29            android:exported="true" >
+29-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:20:13-36
+30            <intent-filter>
+30-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:21:13-25:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:22:17-69
+31-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:22:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:24:17-77
+33-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:24:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity android:name="cm3110.gigachadapp.MainActivity" />
+36-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:27:9-28:43
+36-->C:\Users\keste\Desktop\cm31110-courseworksubmission-KesterPBM\app\src\main\AndroidManifest.xml:28:13-41
+37
+38        <service
+38-->[androidx.room:room-runtime:2.2.6] C:\Users\keste\.gradle\caches\transforms-3\368acb14c3a7de1b8b99baac854d6487\transformed\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+39            android:name="androidx.room.MultiInstanceInvalidationService"
+39-->[androidx.room:room-runtime:2.2.6] C:\Users\keste\.gradle\caches\transforms-3\368acb14c3a7de1b8b99baac854d6487\transformed\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+40            android:directBootAware="true"
+40-->[androidx.room:room-runtime:2.2.6] C:\Users\keste\.gradle\caches\transforms-3\368acb14c3a7de1b8b99baac854d6487\transformed\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+41            android:exported="false" />
+41-->[androidx.room:room-runtime:2.2.6] C:\Users\keste\.gradle\caches\transforms-3\368acb14c3a7de1b8b99baac854d6487\transformed\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+42    </application>
+43
+44</manifest>

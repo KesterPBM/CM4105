@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homepage">
+
+    <fragment
+        android:id="@+id/homepage"
+        android:name="cm3110.gigachadapp.HomePage"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/calorie"
+        android:name="cm3110.gigachadapp.FindMental"
+        android:label="calorie_watcher_fragment" />
+    <fragment
+        android:id="@+id/stocks"
+        android:name="cm3110.gigachadapp.Stocks"
+        android:label="fragment_stocks"
+        tools:layout="@layout/fragment_stocks" />
+    <fragment
+        android:id="@+id/workout"
+        android:name="cm3110.gigachadapp.workout"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" />
+    <fragment
+        android:id="@+id/settingstab"
+        android:name="cm3110.gigachadapp.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settingstab" />
+    <fragment
+        android:id="@+id/workoutDaysSelected"
+        android:name="cm3110.gigachadapp.workoutDaysSelected"
+        android:label="fragment_workout_days_selected"
+        tools:layout="@layout/fragment_workout_days_selected" />
+    <fragment
+        android:id="@+id/exerciseConfirmation"
+        android:name="cm3110.gigachadapp.ExerciseConfirmation"
+        android:label="fragment_exercise_confirmation"
+        tools:layout="@layout/fragment_exercise_confirmation" />
+    <fragment
+        android:id="@+id/displayStockData"
+        android:name="cm3110.gigachadapp.displayStockData"
+        android:label="fragment_display_stock_data"
+        tools:layout="@layout/fragment_display_stock_data" />
+    <fragment
+        android:id="@+id/findcrypto"
+        android:name="cm3110.gigachadapp.FindCrypto"
+        android:label="fragment_location_selection"
+        tools:layout="@layout/fragment_find_crypto" />
+    <fragment
+        android:id="@+id/displayTreatmentPhysical"
+        android:name="cm3110.gigachadapp.displayTreatmentPhysical"
+        android:label="fragment_display_treatment" />
+    <fragment
+        android:id="@+id/displayMentalData"
+        android:name="cm3110.gigachadapp.displayMentalData"
+        android:label="displayMentalData" />
+    <fragment
+        android:id="@+id/displayTreatmentMental"
+        android:name="cm3110.gigachadapp.displayTreatmentMental"
+        android:label="displayTreatmentMental" />
+    <activity
+        android:id="@+id/introScreen"
+        android:name="cm3110.gigachadapp.IntroScreen"
+        android:label="intro_screen" />
+
+</navigation>

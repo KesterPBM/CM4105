@@ -1,0 +1,70 @@
+<resources>
+
+
+
+
+<!-- Workout Planner Strings -->
+<string name="exerciseListTitle">This Apps Purpose</string>
+    <string name="exerciseSearchTitle">Every HBCSS requires complete transparency for optimal effect which this App aims to be. This App was created to help change peoples behaviours in regards to Health by allow personalised choices and queries for your medical issues. In this sense this app has given any user the ability to search for their own symptom or ailment and have personalised answers provided to them. </string>
+    <string name="numberOfRepsTitle">What We Ask For</string>
+    <string name="numberOfSetsTitle">While providing a personalised experience to the user was the main goal, other factors are at play. I kindly ask, if you have the time, to fill in this form detailing your experience with this app as data within HBCSS research is sparse. Thank you for your involvement with this project.</string>
+    <string name="linkToFeedback">Consider completing this survey \n<a href="https://forms.office.com/Pages/ResponsePage.aspx?id=nKagUU8OPUu2QhLgExmGNYm3hHYktBVFh-ptGFvIndhUNkUwVDZHMU5UQjE2MklHWURDTDUxUFdMMy4u">Here</a></string>
+
+    <string name="btSaveExercise">Add Exercise</string>
+    <string name="workoutTitle">General Information</string>
+
+    <!-- Crypto Strings -->
+<string name="tvCryptoSearched">Crypto Information for %1$s</string>
+    <string name="error_downloading_crypto">Error getting crypto from the API</string>
+    <string name="crypto_download_error">Error getting crypto from API</string>
+    <string name="btnRedownloadCrypto">Redownload</string>
+    <string name="tvEnterCryptoName">Enter an ailment.</string>
+    <string name="btFindCrypto">Find Ailment</string>
+    <string name ="btredownload">Treatment</string>
+    <string name ="btsavetreatment">Save Treatment</string>
+    <string name="stockdataplacehold">Loading...</string>
+    <string name="btnGetCryptoUser">Get Crypto Information</string>
+
+    <!-- Home Fragment Strings -->
+    <string name="app_name">EH-AID</string>
+    <string name="welcomeMessage">Welcome To EH-AID</string>
+    <string name="goalsText">Current Saved Ailments/Issues</string>
+    <string name = "welcomeText">Welcome to EH-AID, where finding your ailments symptoms and treatments is a click away. Simply search your illness and the information will be a touch away</string>
+    <string name="addGoalText">Possible Treatments</string>
+    <string name="btAddGoal">Add Goal</string>
+    <string name="goalsUserInputText">Enter your goal...</string>
+
+    <!-- Calorie Fragment Strings -->
+    <string name="tfAge">Age</string>
+    <string name="tfWeight">Weight</string>
+    <string name="weightGoal">Chose your Weight Goal</string>
+    <string name="calorieResult">You need ????? calories</string>`
+    <string name="tfGender">Gender</string>
+    <string name="tfMale">Male</string>
+    <string name="tfFemale">Female</string>
+    <string name="tfHeight">Height</string>
+    <string name="tfFeet">Feet</string>
+    <string name="tfInches">Inches</string>
+    <string name="tfYears">Years</string>
+    <string name="tfWeightMeasurement">Kg</string>
+
+
+    <!-- Settings fragment -->
+    <string name="settingsTitle">Settings</string>
+    <string name="tfWeightChangeUnit">Change weight unit</string>
+    <string name="kgText">Kg</string>
+    <string name="poundsText">Pounds</string>
+    <string name="tfMoneyChangeUnit">Change money unit</string>
+    <string name="sterlingText">£</string>
+    <string name="dollarText">$</string>
+    <string name="euroText">€</string>
+    <string name="tfAbout">About</string>
+    <string name="btsaveSettings">Save Settings</string>
+
+
+    <string name="miSettings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

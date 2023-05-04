@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage">
+
+    <TextView
+        android:id="@+id/goalsText"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/goalsText"
+        app:layout_constraintBottom_toTopOf="@+id/tfsavedTreatmentLabel"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btDelete" />
+
+    <TextView
+        android:id="@+id/textIntro"
+        android:layout_width="382dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/welcomeText"
+        app:layout_constraintBottom_toTopOf="@+id/btDelete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage" />
+
+    <TextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="32dp"
+        android:text="@string/welcomeMessage"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tfSavedMentalTreatment"
+        app:layout_constraintStart_toStartOf="@+id/textIntro"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tfsavedTreatmentNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="308dp"
+        android:text="@string/addGoalText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tfSavedTreatment"
+        android:layout_width="0dp"
+        android:layout_height="311dp"
+        android:layout_marginEnd="14dp"
+        android:autoSizeTextType="uniform"
+        android:focusable="true"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tfSavedMentalTreatment"
+        app:layout_constraintEnd_toStartOf="@+id/tfSavedMentalTreatment"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tfSavedMentalTreatment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="50dp"
+        android:autoSizeTextType="uniform"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:scrollbars="vertical"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tfSavedTreatment"
+        app:layout_constraintTop_toBottomOf="@+id/tfsavedTreatmentNames" />
+
+    <TextView
+        android:id="@+id/tfsavedTreatmentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/tfsavedTreatmentNames"
+        app:layout_constraintStart_toStartOf="@+id/btDelete" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="11dp"
+        android:text="Physical"
+        app:layout_constraintBottom_toTopOf="@+id/tfSavedTreatment"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="11dp"
+        android:text="Mental"
+        app:layout_constraintBottom_toTopOf="@+id/tfSavedMentalTreatment"
+        app:layout_constraintStart_toStartOf="@+id/tfSavedMentalTreatment" />
+
+    <Button
+        android:id="@+id/btDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="142dp"
+        android:text="Delete Saved Ailments"
+        app:layout_constraintEnd_toEndOf="@+id/textIntro"
+        app:layout_constraintStart_toStartOf="@+id/textIntro"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

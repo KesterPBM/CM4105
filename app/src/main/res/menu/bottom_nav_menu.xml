@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomHome"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/bottomCalorie"
+        android:icon="@drawable/mental"
+        android:title="Mental" />
+
+    <item
+        android:id="@+id/bottomPhysical"
+        android:icon="@drawable/physical"
+        android:title="Physical" />
+
+    <item
+        android:id="@+id/bottomWorkout"
+        android:icon="@drawable/info"
+        android:title="Information" />
+
+</menu>
