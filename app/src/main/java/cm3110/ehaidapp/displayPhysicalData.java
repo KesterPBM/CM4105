@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -15,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import cm3110.gigachadapp.data.PhysicalApiParser;
 import cm3110.gigachadapp.data.StockRepository;
-import cm3110.gigachadapp.data.StockApiParser;
 import cm3110.gigachadapp.data.StocksList;
 
 
@@ -42,13 +40,13 @@ import cm3110.gigachadapp.data.StocksList;
  * A simple {@link Fragment} subclass.
 
  */
-public class displayStockData extends Fragment implements View.OnClickListener {
+public class displayPhysicalData extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "StockData";
     public static String ARG_CRYPTO_NAME = "cryptoName";
     public static String  ARG_SAVE_CRYPTO = "crypto";
     // member variables for the setting up the display
-    private String mCryptoName;
+    private String mPhysical;
 
     public TextView tvDiseaseTitle;
     public TextView tvSymptoms;
@@ -62,15 +60,15 @@ public class displayStockData extends Fragment implements View.OnClickListener {
     StocksList displaySymptoms = new StocksList();
 
 
-    public displayStockData() {
+    public displayPhysicalData() {
         // Required empty public constructor
     }
 
     //Gets the passed on args to be used in the class//
-    public static displayStockData newInstance(String stock) {
-        displayStockData fragment = new displayStockData();
+    public static displayPhysicalData newInstance(String stock) {
+        displayPhysicalData fragment = new displayPhysicalData();
         Bundle args = new Bundle();
-        args.putString(FindCrypto.ARG_CRYPTO_NAME, stock);
+        args.putString(FindPhysical.ARG_CRYPTO_NAME, stock);
 
         fragment.setArguments(args);
         return fragment;
@@ -80,7 +78,7 @@ public class displayStockData extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mCryptoName = getArguments().getString(FindCrypto.ARG_CRYPTO_NAME);
+            mPhysical = getArguments().getString(FindPhysical.ARG_CRYPTO_NAME);
 
         }
         //Gets the repository//
@@ -94,7 +92,7 @@ public class displayStockData extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_display_stock_data, container, false);
+        return inflater.inflate(R.layout.fragment_display_physical, container, false);
     }
 
     @Override
@@ -116,7 +114,7 @@ public class displayStockData extends Fragment implements View.OnClickListener {
 
 
         //Gets the crypto data, if it is in the database or not//
-        stockRepository.getStockDataFromDB(mCryptoName).observe(getViewLifecycleOwner(), new Observer<List<StocksList>>() {
+        stockRepository.getStockDataFromDB(mPhysical).observe(getViewLifecycleOwner(), new Observer<List<StocksList>>() {
             @Override
             public void onChanged(List<StocksList> newStocksLists) {
                 if (newStocksLists.size() > 0) {
@@ -145,7 +143,7 @@ public class displayStockData extends Fragment implements View.OnClickListener {
 
         ARG_CRYPTO_NAME = "cryptoName";
 
-        // create bundle for the arguments//displayStockData
+        // create bundle for the arguments//displayPhysicalData
         Bundle args = new Bundle();
         args.putString(ARG_CRYPTO_NAME, crypto);
 
@@ -159,14 +157,14 @@ public class displayStockData extends Fragment implements View.OnClickListener {
     //Download the Stock Data//
     private void downloadStockData() {
         String disease = "";
-        disease.replace("", mCryptoName + "/?");
+        disease.replace("", mPhysical + "/?");
         System.out.println(disease);
 
         // build URI with the https request from the crypto API//
         Uri uri = Uri.parse("https://api.nhs.uk/conditions/");
         Uri.Builder uriBuilder = uri.buildUpon();
         //Add user defined crypto to the path to get the data//
-        uriBuilder.appendPath(mCryptoName);
+        uriBuilder.appendPath(mPhysical);
         uriBuilder.appendEncodedPath("/?subscription-key=ef2f90a4509245e18f25a441ac2b5b97");
         // create the final URL
         uri = uriBuilder.build();
@@ -187,17 +185,16 @@ public class displayStockData extends Fragment implements View.OnClickListener {
                         //Clears stocksList just in case there is data//
                         stocksLists.clear();
 
-                        // parse the response with a StockApiParser
-                        StockApiParser parser = new StockApiParser();
+                        // parse the response with a PhysicalApiParser
+                        PhysicalApiParser parser = new PhysicalApiParser();
 
                         try {
                             //Convert the parser to JSON//
 
-                            StocksList crypto = parser.convertStockJson(response, mCryptoName);
+                            StocksList crypto = parser.convertStockJson(response, mPhysical);
 
                             System.out.println(crypto.getDescription());
 
-                            System.out.println("Crypto Saved");
                             //Adds the new List created to stocksLists//
                             displaySymptoms = crypto;
                             System.out.println("Stock list data = " + displaySymptoms);

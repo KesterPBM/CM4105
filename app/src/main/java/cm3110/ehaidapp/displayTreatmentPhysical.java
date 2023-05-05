@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.navigation.Navigation;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,9 +31,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import cm3110.gigachadapp.data.StockApiParser;
 import cm3110.gigachadapp.data.StockRepository;
 import cm3110.gigachadapp.data.StocksList;
 import cm3110.gigachadapp.data.TreatmentAPIParser;
@@ -50,7 +47,7 @@ public class displayTreatmentPhysical extends Fragment implements View.OnClickLi
     public static String ARG_CRYPTO_NAME = "cryptoName";
     public static String  ARG_SAVE_CRYPTO = "crypto";
     // member variables for the setting up the display
-    private String mCryptoName;
+    private String mPhysical;
     public String savedTreatments;
     public TextView tvTreatmentTitle;
     public TextView tvTreatment;
@@ -71,7 +68,7 @@ public class displayTreatmentPhysical extends Fragment implements View.OnClickLi
     public static displayTreatmentPhysical newInstance(String stock) {
         displayTreatmentPhysical fragment = new displayTreatmentPhysical();
         Bundle args = new Bundle();
-        args.putString(FindCrypto.ARG_CRYPTO_NAME, stock);
+        args.putString(FindPhysical.ARG_CRYPTO_NAME, stock);
 
         fragment.setArguments(args);
         return fragment;
@@ -81,7 +78,7 @@ public class displayTreatmentPhysical extends Fragment implements View.OnClickLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mCryptoName = getArguments().getString(FindCrypto.ARG_CRYPTO_NAME);
+            mPhysical = getArguments().getString(FindPhysical.ARG_CRYPTO_NAME);
 
         }
         //Gets the repository//
@@ -116,7 +113,7 @@ public class displayTreatmentPhysical extends Fragment implements View.OnClickLi
 
 
         //Gets the crypto data, if it is in the database or not//
-        stockRepository.getStockDataFromDB(mCryptoName).observe(getViewLifecycleOwner(), new Observer<List<StocksList>>() {
+        stockRepository.getStockDataFromDB(mPhysical).observe(getViewLifecycleOwner(), new Observer<List<StocksList>>() {
             @Override
             public void onChanged(List<StocksList> newStocksLists) {
                 if (newStocksLists.size() > 0) {
@@ -195,14 +192,14 @@ public class displayTreatmentPhysical extends Fragment implements View.OnClickLi
     //Download the Stock Data//
     private void downloadStockData() {
         String disease = "";
-        disease.replace("", mCryptoName + "/?");
+        disease.replace("", mPhysical + "/?");
         System.out.println(disease);
 
         // build URI with the https request from the crypto API//
         Uri uri = Uri.parse("https://api.nhs.uk/conditions/");
         Uri.Builder uriBuilder = uri.buildUpon();
         //Add user defined crypto to the path to get the data//
-        uriBuilder.appendPath(mCryptoName);
+        uriBuilder.appendPath(mPhysical);
         uriBuilder.appendEncodedPath("/treatment/?subscription-key=ef2f90a4509245e18f25a441ac2b5b97");
         // create the final URL
         uri = uriBuilder.build();
@@ -223,13 +220,13 @@ public class displayTreatmentPhysical extends Fragment implements View.OnClickLi
                         //Clears stocksList just in case there is data//
                         stocksLists.clear();
 
-                        // parse the response with a StockApiParser
+                        // parse the response with a PhysicalApiParser
                         TreatmentAPIParser parser = new TreatmentAPIParser();
 
                         try {
                             //Convert the parser to JSON//
 
-                            StocksList crypto = parser.convertStockJson(response, mCryptoName);
+                            StocksList crypto = parser.convertStockJson(response, mPhysical);
 
                             System.out.println(crypto.getDescription());
 

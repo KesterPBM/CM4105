@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         NavController navController = Navigation.findNavController(findViewById(R.id.fragmentContainerView));
         int currentFragmentId = navController.getCurrentDestination().getId();
 
-        if (item.getItemId() == R.id.bottomCalorie) {
-            if (currentFragmentId != R.id.calorie) {
-                navController.navigate(R.id.calorie);
+        if (item.getItemId() == R.id.bottomMental) {
+            if (currentFragmentId != R.id.findMental) {
+                navController.navigate(R.id.findMental);
             }
             return true;
         } else if (item.getItemId() == R.id.bottomHome) {
@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
             }
             return true;
         } else if (item.getItemId() == R.id.bottomPhysical) {
-            if (currentFragmentId != R.id.findcrypto) {
-                navController.navigate(R.id.findcrypto);
+            if (currentFragmentId != R.id.findPhysical) {
+                navController.navigate(R.id.findPhysical);
             }
             return true;
-        } else if (item.getItemId() == R.id.bottomWorkout) {
-            if (currentFragmentId != R.id.workoutDaysSelected) {
-                navController.navigate(R.id.workoutDaysSelected);
+        } else if (item.getItemId() == R.id.bottomInformation) {
+            if (currentFragmentId != R.id.fragment_information) {
+                navController.navigate(R.id.fragment_information);
             }
             return true;
         }

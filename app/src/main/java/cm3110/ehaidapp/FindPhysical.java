@@ -14,16 +14,16 @@ import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FindCrypto#newInstance} factory method to
+ * Use the {@link FindPhysical#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FindCrypto extends Fragment implements View.OnClickListener {
+public class FindPhysical extends Fragment implements View.OnClickListener {
 
     public static String ARG_CRYPTO_NAME = "cryptoName";
 
 
 
-    public FindCrypto() {
+    public FindPhysical() {
         // Required empty public constructor
     }
 
@@ -31,11 +31,11 @@ public class FindCrypto extends Fragment implements View.OnClickListener {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment FindCrypto.
+     * @return A new instance of fragment FindPhysical.
      */
     // TODO: Rename and change types and number of parameters
-    public static FindCrypto newInstance() {
-        FindCrypto fragment = new FindCrypto();
+    public static FindPhysical newInstance() {
+        FindPhysical fragment = new FindPhysical();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);
@@ -63,10 +63,10 @@ public class FindCrypto extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_find_crypto, container, false);
+        View view = inflater.inflate(R.layout.fragment_find_physical, container, false);
 
         //Creates the button to get the Stock//
-        Button btnGetStock = view.findViewById(R.id.btnGetStock);
+        Button btnGetStock = view.findViewById(R.id.btGetPhysical);
         btnGetStock.setOnClickListener(this);
 
         return view;
@@ -77,16 +77,16 @@ public class FindCrypto extends Fragment implements View.OnClickListener {
 
 
         //If the button is selected, get the crypto typed in by the user and carry it to the next fragment//
-        if (v.getId() == R.id.btnGetStock) {
+        if (v.getId() == R.id.btGetPhysical) {
             // Get the stock entered by the user//
-            EditText etCrypto = getView().findViewById(R.id.etEnterStock);
-            String crypto = etCrypto.getText().toString();
+            EditText etPhysical = getView().findViewById(R.id.etPhysical);
+            String physical = etPhysical.getText().toString();
 
             ARG_CRYPTO_NAME = "cryptoName";
 
             // create bundle for the arguments//
             Bundle args = new Bundle();
-            args.putString(ARG_CRYPTO_NAME, crypto);
+            args.putString(ARG_CRYPTO_NAME, physical);
 
 
             //Navigates to the next fragment which will display the data//

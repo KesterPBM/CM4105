@@ -5,7 +5,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * Handles converting the JSON returned by the WeatherAPI Web Services into
  * objects usable by the app.
  */
-public class StockApiParser {
+public class PhysicalApiParser {
 
     /**
      *
@@ -26,7 +25,7 @@ public class StockApiParser {
     public StocksList convertStockJson(String jsonString, String Cname) throws JSONException, ParseException{
 
 
-        // for storing the parsed Crypto//
+        // for storing the parsed API//
         List<StocksList> stocksLists = new ArrayList<StocksList>();
         StocksList clsaved = new StocksList();
 
@@ -37,17 +36,15 @@ public class StockApiParser {
             Object descriptionObject = rootObject.get("description");
             JSONArray hasPart = rootObject.getJSONArray("hasPart");
             JSONObject haspartParts = hasPart.getJSONObject(0);
-            System.out.println( "TESTING ARRAY SEARCH" + haspartParts);
 
                 String name = cryptoObject.getString("name");
                 String description = descriptionObject.toString();
-                String symptomsheadline = haspartParts.getString("headline");
                 String symptoms = haspartParts.getString("description");
 
 
                     // create a StocksList with the extracted information
                     StocksList cl = new StocksList();
-                    cl.setSymptomHeader(symptomsheadline);
+
                     cl.setSymptoms(symptoms);
                     cl.setName(name);
                     cl.setDescription(description);

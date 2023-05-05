@@ -25,7 +25,7 @@ public class MentalApiParser {
     public StocksList convertStockJson(String jsonString, String Cname) throws JSONException, ParseException{
 
 
-        // for storing the parsed Crypto//
+        // for storing the parsed Info//
         List<StocksList> stocksLists = new ArrayList<StocksList>();
         StocksList mentalsaved = new StocksList();
 

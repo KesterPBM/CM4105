@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Locale;
 
 import cm3110.gigachadapp.data.MentalApiParser;
-import cm3110.gigachadapp.data.StockApiParser;
 import cm3110.gigachadapp.data.StockRepository;
 import cm3110.gigachadapp.data.StocksList;
 
@@ -46,7 +45,7 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
     public static String ARG_CRYPTO_NAME = "cryptoName";
     public static String  ARG_SAVE_CRYPTO = "crypto";
     // member variables for the setting up the display
-    private String mCryptoName;
+    private String mMental;
 
     public TextView tvMentalTitle;
     public TextView tvMentalSymptoms;
@@ -67,7 +66,7 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
     public static displayMentalData newInstance(String stock) {
         displayMentalData fragment = new displayMentalData();
         Bundle args = new Bundle();
-        args.putString(FindCrypto.ARG_CRYPTO_NAME, stock);
+        args.putString(FindPhysical.ARG_CRYPTO_NAME, stock);
 
         fragment.setArguments(args);
         return fragment;
@@ -77,7 +76,7 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mCryptoName = getArguments().getString(FindCrypto.ARG_CRYPTO_NAME);
+            mMental = getArguments().getString(FindPhysical.ARG_CRYPTO_NAME);
 
         }
         //Gets the repository//
@@ -112,7 +111,7 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
 
 
         //Gets the crypto data, if it is in the database or not//
-        stockRepository.getStockDataFromDB(mCryptoName).observe(getViewLifecycleOwner(), new Observer<List<StocksList>>() {
+        stockRepository.getStockDataFromDB(mMental).observe(getViewLifecycleOwner(), new Observer<List<StocksList>>() {
             @Override
             public void onChanged(List<StocksList> newStocksLists) {
                 if (newStocksLists.size() > 0) {
@@ -137,11 +136,11 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
 
         TextView etCrypto = getView().findViewById(R.id.tvMentalTitle);
 
-        String crypto = mCryptoName.toLowerCase(Locale.ROOT);
+        String crypto = mMental.toLowerCase(Locale.ROOT);
         crypto = crypto.replace(" ", "-");
         ARG_CRYPTO_NAME = "cryptoName";
 
-        // create bundle for the arguments//displayStockData
+        // create bundle for the arguments//displayPhysicalData
         Bundle args = new Bundle();
         args.putString(ARG_CRYPTO_NAME, crypto);
 
@@ -155,14 +154,14 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
     //Download the Stock Data//
     private void downloadStockData() {
         String disease = "";
-        disease.replace("", mCryptoName + "/?");
+        disease.replace("", mMental + "/?");
         System.out.println(disease);
 
         // build URI with the https request from the crypto API//
         Uri uri = Uri.parse("https://api.nhs.uk/mental-health/conditions/");
         Uri.Builder uriBuilder = uri.buildUpon();
         //Add user defined crypto to the path to get the data//
-        uriBuilder.appendPath(mCryptoName);
+        uriBuilder.appendPath(mMental);
         uriBuilder.appendEncodedPath("overview/?subscription-key=ef2f90a4509245e18f25a441ac2b5b97");
         // create the final URL
         uri = uriBuilder.build();
@@ -183,13 +182,13 @@ public class displayMentalData extends Fragment implements View.OnClickListener 
                         //Clears stocksList just in case there is data//
                         stocksLists.clear();
 
-                        // parse the response with a StockApiParser
+                        // parse the response with a PhysicalApiParser
                         MentalApiParser parser = new MentalApiParser();
 
                         try {
                             //Convert the parser to JSON//
 
-                            StocksList crypto = parser.convertStockJson(response, mCryptoName);
+                            StocksList crypto = parser.convertStockJson(response, mMental);
 
                             System.out.println(crypto.getDescription());
 
